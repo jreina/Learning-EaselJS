@@ -4,10 +4,21 @@
         <script src="https://code.createjs.com/createjs-2015.11.26.min.js"></script>
         <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
         <script type="text/javascript">
+            $(document).ready(function() {
+                var stage = new createjs.Stage("render-target");
+
+                var circle = new createjs.Shape();
+                circle.graphics.beginFill("DeepSkyBlue").drawCircle(0, 0, 50);
+                circle.x = 100;
+                circle.y = 100;
+                stage.addChild(circle);
+
+                stage.update();
+            });
         </script>
     </head>
     <body>
-        <div class="render-target">
-        </div>
+        <canvas id="render-target">
+        </canvas>
     </body>
 </html>
