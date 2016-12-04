@@ -14,6 +14,17 @@
                 stage.addChild(circle);
 
                 stage.update();
+
+                //Update stage will render next frame
+                createjs.Ticker.addEventListener("tick", handleTick);
+
+                function handleTick() {
+                //Circle will move 10 units to the right.
+                    circle.x += 10;
+                    //Will cause the circle to wrap back
+                    if (circle.x > stage.canvas.width) { circle.x = 0; }
+                    stage.update();
+                }
             });
         </script>
     </head>
